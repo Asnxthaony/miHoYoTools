@@ -6,6 +6,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var (
+	isOversea bool
+)
+
 var rootCmd = &cobra.Command{
 	Use:   "miHoYoTools",
 	Short: "A useful tool for Genshin Impact",

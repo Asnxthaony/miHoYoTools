@@ -44,7 +44,7 @@ var setCmd = &cobra.Command{
 		println("New Account Data List =", string(data))
 
 		encryptedAccountDataList := utils.EncodeString(string(data))
-		utils.SetAccountDataList(encryptedAccountDataList)
+		utils.SetAccountDataList(encryptedAccountDataList, isOversea)
 
 		println("OK")
 	},
@@ -57,6 +57,7 @@ func init() {
 	setCmd.Flags().StringVarP(&token, "token", "t", "", "Combo Token (required)")
 	setCmd.Flags().StringVarP(&account, "account", "a", "", "Account (required)")
 	setCmd.Flags().StringVarP(&deviceId, "deviceId", "d", "", "Device Id (required)")
+	setCmd.Flags().BoolVar(&isOversea, "oversea", false, "Use oversea client (default: false)")
 
 	setCmd.MarkFlagRequired("uid")
 	setCmd.MarkFlagRequired("token")
